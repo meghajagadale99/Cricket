@@ -14,7 +14,8 @@ class GameTest {
     @Test
     void shouldWonGameWhenTargetTwelveForBatsmanIsReaches() {
         Batsman batsman = new Batsman();
-        Game game = new Game(12, batsman);
+        Bowler bowler = new Bowler();
+        Game game = new Game(12, 2,batsman, bowler);
 
         game.play();
 
@@ -25,12 +26,25 @@ class GameTest {
     @Test
     void shouldLossGameWhenTargetTwelveForBatsmanIsNotReaches() {
         Batsman batsman = new Batsman();
-        Game game = new Game(12, batsman);
+        Bowler bowler = new Bowler();
+        Game game = new Game(12, 2,batsman, bowler);
 
         game.play();
 
         Result result = game.finalResult();
         assertThat(result, is(LOSE));
+    }
+
+    @Test
+    void shouldWinGameWhenTargetTwelveForBatsmanInOverReaches() {
+        Batsman batsman = new Batsman();
+        Bowler bowler = new Bowler();
+        Game game = new Game(20,2, batsman, bowler);
+
+        game.play();
+
+        Result result = game.finalResult();
+        assertThat(result, is(WIN));
     }
 
 }

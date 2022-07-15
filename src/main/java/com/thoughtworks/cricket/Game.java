@@ -4,13 +4,17 @@ package com.thoughtworks.cricket;
 public
 class Game {
     private final int target;
+    private final int numberOfOvers;
     private final Batsman batsman;
+    private final Bowler bowler;
     private int score;
 
     public
-    Game(int target, Batsman batsman) {
+    Game(int target, int numberOfOvers, Batsman batsman, Bowler bowler) {
         this.target = target;
+        this.numberOfOvers = numberOfOvers;
         this.batsman = batsman;
+        this.bowler = bowler;
     }
 
     public
